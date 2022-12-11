@@ -1,0 +1,199 @@
+/* @extend display-flex; */
+display-flex, .signup-content, .form-row, .form-radio, .select-icon, .select-icon i {
+  display: flex;
+  display: -webkit-flex; }
+
+/* @extend list-type-ulli; */
+
+list-type-ulli {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+a:focus, a:active {
+  text-decoration: none;
+  outline: none;}
+
+input, select, textarea {
+  outline: none; }
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  box-shadow: none !important;}
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+h2, h3 {
+  line-height: 1.66;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  color: #222;
+  font-family: 'Montserrat';
+  font-size: 20px;
+  margin-bottom: 32px; }
+
+body {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #222;
+  font-weight: 400;
+  background: #282828;
+  padding: 90px 0; }
+
+.container {
+  width: 1400px;
+  position: relative;
+  margin: 0 auto;
+  background: #fff; }
+
+.row { padding-bottom: 50px; padding-top: 0 }
+
+.profile-img {
+    padding-top: 40px;
+    padding-left: 150px;
+}
+
+.profile-img img { width: 420px }
+.profile-img input { display: none }
+
+#uploadImage:hover { cursor: pointer; }
+
+/*-----------------------------Edit Profile..................*/
+
+#name-input, #aadhaar-input, #birth_date-input, #gender-input, #city-input, #house_number-input,
+#state-input, #country-input, #contact_no-input, #email-input, #uploadImage, #save
+{ display: none; }
+
+/*-----------------------------------------------------------*/
+
+.register-form { padding-top: 6% }
+
+.form-row {
+  margin: 0 -15px; }
+  .form-row .form-group {
+    width: 50%;
+    padding: 0 15px; }
+
+.form-group {
+  margin-bottom: 23px;
+  position: relative; }
+
+input {
+  display: block;
+  width: 100%;
+  border: 1px solid #ebebeb;
+  padding: 11px 20px;
+  box-sizing: border-box;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 13px; }
+  input:focus {
+    border: 1px solid #ff6801; }
+
+select {
+  display: block;
+  width: 100%;
+  border: 1px solid #ebebeb;
+  padding: 11px 20px;
+  box-sizing: border-box;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 13px; }
+  select:focus {
+    border: 1px solid #ff6801; }
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Montserrat';
+  margin-bottom: 2px;
+    width: 420px;
+  display: block; }
+
+.form-submit {
+  text-align: right;
+  padding-top: 27px; }
+
+.form-submit button { text-transform: uppercase; font-weight: bold; }
+
+.form-submit a { text-decoration: none; text-align: center }
+
+#edit { margin-right: 10% }
+
+.submit {
+  width: 140px;
+  height: 40px;
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 13px;
+  padding: 10px;
+  border: none;
+  cursor: pointer; }
+
+#reset {
+  background: #f8f8f8;
+  color: #999;
+  margin-right: 8px; }
+  #reset:hover {
+    background: #ff6801;
+    color: #fff; }
+
+#submit, #edit {
+  background: #4cae4c;
+  color: #fff; }
+  #submit:hover, #edit:hover {
+    background-color: #3c763d; transition-duration: 0.5s }
+
+#cancel {
+  background:crimson;
+  color: #fff; }
+  #cancel:hover {
+    background-color: #c9302c; transition-duration: 0.5s }
+
+
+.colorlib-nav {
+  width: 100%;
+  height: 80px;
+  background-color: #282828;
+  position: fixed; top: 0; z-index: 1;}
+.colorlib-nav .top-menu {
+  padding: 20px 30px; }
+.colorlib-nav #colorlib-logo {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  float: left;
+  text-transform: uppercase;
+  font-weight: 700; }
+.colorlib-nav #colorlib-logo a {
+  position: relative;
+  color: #fff; }
+.colorlib-nav ul {
+  padding: 0;
+  margin: 0;
+  float: right}
+.colorlib-nav ul li {
+  padding: 8px 0;
+  margin: 0;
+  list-style: none;
+  display: inline;
+  font-weight: 400;
+  font-family: "Poppins", Arial, sans-serif; }
+.colorlib-nav ul li a {
+  position: relative;
+  font-size: 19px;
+  padding: 20px 12px;
+  color: rgba(255, 255, 255, 0.5);
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; }
+.colorlib-nav ul li a:hover {
+  color: #a2dc4d; }
+
+.colorlib-nav a { text-decoration: none; }
+
+.profile-img h3 { text-align: center; padding-top: 100px; padding-right: 100px; font-size: 50px; }
+
+#edit { z-index: 0 }

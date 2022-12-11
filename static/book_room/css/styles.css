@@ -1,0 +1,80 @@
+input[type='number'],#room,#customer{
+    background-color: rgba(255,255,255,0.9);
+}
+.form{
+    width:40%;
+    margin-top: 50px;
+}
+
+.form h1{
+    text-align: center;
+    color: #a6e1ec;
+    margin-bottom: 6%;
+    font-family: "Tempus Sans ITC";
+    font-weight: bolder;
+}
+.form a{
+    text-decoration: none;
+}
+
+.btn-outline-info{
+    width:150px;
+    margin-left: 8%;
+}
+
+.form h4{
+    font-size: 15px;
+    margin-left: 10%; margin-top: 5%;
+    color: #bce8f1;
+    display: inline-block;
+}
+
+.form marquee{
+    color: #a6e1ec;
+    margin-top: 35px;
+    margin-left: 150px;
+}
+
+.form label{
+    color: #bce8f1;
+    font-family: "Tempus Sans ITC";
+}
+
+.colorlib-nav {
+  margin: 0 auto;
+  width: 100%;
+  background: none;}
+.colorlib-nav .top-menu {
+  padding: 20px 30px; }
+.colorlib-nav #colorlib-logo {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  float: left;
+  text-transform: uppercase;
+  font-weight: 700; }
+.colorlib-nav #colorlib-logo a {
+  position: relative;
+  color: #fff; }
+.colorlib-nav ul {
+  padding: 0;
+  margin: 0; }
+.colorlib-nav ul li {
+  padding: 8px 0;
+  margin: 0;
+  list-style: none;
+  display: inline;
+  font-weight: 400;
+  font-family: "Poppins", Arial, sans-serif; }
+.colorlib-nav ul li a {
+  position: relative;
+  font-size: 19px;
+  padding: 20px 12px;
+  color: rgba(255, 255, 255, 0.5);
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; }
+.colorlib-nav ul li a:hover {
+  color: #a2dc4d; }
+
+.colorlib-nav a { text-decoration: none; }

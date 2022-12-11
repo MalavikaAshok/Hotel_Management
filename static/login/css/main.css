@@ -1,0 +1,52 @@
+
+.colorlib-nav {
+  margin: 0 auto;
+  width: 100%;
+  background: none;}
+.colorlib-nav .top-menu {
+  padding: 20px 30px; }
+.colorlib-nav #colorlib-logo {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  float: left;
+  text-transform: uppercase;
+  font-weight: 700; }
+.colorlib-nav #colorlib-logo a {
+  position: relative;
+  color: #fff; }
+.colorlib-nav ul {
+  padding: 0;
+  margin: 0; }
+.colorlib-nav ul li {
+  padding: 8px 0;
+  margin: 0;
+  list-style: none;
+  display: inline;
+  font-weight: 400;
+  font-family: "Poppins", Arial, sans-serif; }
+.colorlib-nav ul li a {
+  position: relative;
+  font-size: 19px;
+  padding: 20px 12px;
+  color: rgba(255, 255, 255, 0.5);
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; }
+.colorlib-nav ul li a:hover {
+  color: #a2dc4d; }
+
+.colorlib-nav a { text-decoration: none; }
+
+.form { margin-left: 32%; margin-top: 8%; text-align: center }
+
+.form input { display: block; width: 100%; background-color: #dff0d8; border: solid 1px black;
+            margin: 70px 40px 20px 10px; height: 60px; padding-left: 50px; padding-right: 50px; color: black  }
+
+.form h2 { color: #bce8f1; font-size: 2.7rem }
+
+.form button { width: 30%; height: 40px; margin-top: 4.8%; background-color: #4cae4c; padding-bottom: 10px }
+
+.form button:hover { background-color: #5cb85c; }
+
+.form input:hover, .form input:focus { background-color: #e3e3e3; }
