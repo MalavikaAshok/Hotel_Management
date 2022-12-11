@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.css" rel="stylesheet">
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+    <title>Profile - {{ customer_details.customer_name }}</title>
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'customer_profile/css/style.css' %}">
+</head>
+<body>
+
+<nav class="colorlib-nav">
+    <div class="top-menu">
+        <div class="col-md-2 text-center">
+            <div id="colorlib-logo"><a href="{% url 'room_management:landing-page' %}">BOOK HOTEL</a></div>
+        </div>
+        <div class="col-md-10 text-right">
+            <ul>
+                <li class="active"><a href="{% url 'room_management:customers-list' %}">Back</a></li>
+                <li class="active"><a href="{% url 'room_management:landing-page' %}">Home</a></li>
+                <li class="btn-cta"><a href="{% url 'room_management:logout' %}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <form method="POST" class="register-form" id="register-form" enctype="multipart/form-data"
+              action="{% url 'room_management:edit-details' customer_details.customer_aadhaar %}">
+            {% csrf_token %}
+            <div class="col-lg-6 profile-img">
+                <input type="file" accept=".png, .jpg, .jpeg" id="imageUpload" name="image" onchange="loadFile(event)">
+                <label for="imageUpload">
+                    <img
+                        {% if customer_details.customer_image.url != None %}
+                            src="{{ MEDIA_URL }}{{ customer_details.customer_image.url }}"
+                        {% endif %}
+                            src="{% static 'add_customer/images/add-image.png' %}"
+                            alt="" style="height: 500px" id="uploadImage"
+                         title="Upload Profile Image">
+                </label>
+                {% if customer_details.customer_image.url != None %}
+                    <img src="{{ MEDIA_URL }}{{ customer_details.customer_image.url }}" alt="" style="height: 500px;" id="profileImage">
+                {% else %}
+                    <h3>No Image</h3>
+                {% endif %}
+            </div>
+
+            <div class="col-lg-6" id="details">
+                <h3>CUSTOMER DETAILS:</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name :</label>
+                        <h2 id="name">{{ customer_details.customer_name }}</h2>
+                        <input type="text" name="cust_name" id="name-input"
+                               value="{{ customer_details.customer_name }}" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="aadhaar">Aadhaar No :</label>
+                        <h2 id="aadhaar">{{ customer_details.customer_aadhaar }}</h2>
+                        <input type="text" name="aadhaar" id="aadhaar-input"
+                               value="{{ customer_details.customer_aadhaar }}" disabled
+                        />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="birth_date">DOB :</label>
+                        <h2 id="birth_date">{{ customer_details.customer_dob }}</h2>
+                        <input type="text" name="cust_dob" pattern="[0-9]{4}-[0-9]{1-2}-[0-9]{1-2}" id="birth_date-input"
+                               placeholder="YYYY-MM-DD"
+                               value="{{ customer_details.customer_dob.year }}-{{ customer_details.customer_dob.month }}-{{ customer_details.customer_dob.day }}"
+                               disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender: </label>
+                        <h2 id="gender">{{ customer_details.gender }}</h2>
+                        <input name="gender" id="gender-input"
+                               value="{{ customer_details.gender }}" disabled>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">City :</label>
+                        <h2 id="city">{{ customer_details.address.city }}</h2>
+                        <input type="text" name="city" id="city-input"
+                               value="{{ customer_details.address.city }}" disabled/>
+                    </div>
+                    <div class="form-group">
+                        <label for="house_no">House No:</label>
+                        <h2 id="house_no">{{ customer_details.address.house_number }}</h2>
+                        <input type="text" name="house_number" id="house_number-input"
+                               value="{{ customer_details.address.house_number }}" disabled/>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="state">State :</label>
+                        <h2 id="state">{{ customer_details.address.state }}</h2>
+                        <input type="text" name="state" id="state-input"
+                               value="{{ customer_details.address.state }}" disabled/>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country:</label>
+                        <h2 id="country">{{ customer_details.address.country }}</h2>
+                        <input type="text" name="country" id="country-input"
+                               value="{{ customer_details.address.country }}" disabled/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contact_no">Contact Number :</label>
+                    <h2 id="contact_no">{{ customer_details.contact_details.phone_number }}</h2>
+                    <input type="text" name="phn_number" id="contact_no-input"
+                           value="{{ customer_details.contact_details.phone_number }}" required/>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email ID :</label>
+                    <h2 id="email">{{ customer_details.contact_details.email }}</h2>
+                    <input type="email" name="email" id="email-input"
+                           value="{{ customer_details.contact_details.email }}" required/>
+                </div>
+                <div class="form-submit">
+                    <div class="btn-group" role="group" aria-label="Basic example" id="edit">
+                        <a type="button" class="btn btn-success" name="edit" onclick="edit_mode_on()">
+                            Edit Customer Details
+                        </a>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" style="text-transform: capitalize">
+                            Delete Customer
+                        </button>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="Basic example" id="save">
+                        <button type="submit" class="btn btn-success">Save Changes</button>
+                        <a href="{% url 'room_management:customer-profile' customer_details.customer_aadhaar %}"
+                           class="btn btn-warning">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Delete Customer</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                Do you really want to delete the customer?
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                <a type="button" class="btn btn-danger"
+                   href="{% url 'room_management:delete-customer' customer_details.customer_aadhaar %}">Delete</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="{% static 'customer_profile/js/jscript.js' %}"></script>
+
+<script>
+    var loadFile = function(event) {
+        var reader = new FileReader();
+        reader.onload = function(){
+            var output = document.getElementById('uploadImage');
+            output.src = document.querySelector('input[type=file]').files[0];
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    };
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <title>Sign Up Form by Colorlib</title>
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'add_customer/css/style.css' %}">
+</head>
+<body>
+
+<nav class="colorlib-nav">
+    <div class="top-menu">
+        <div class="col-md-2 text-center">
+            <div id="colorlib-logo"><a href="{% url 'room_management:landing-page' %}">BOOK HOTEL</a></div>
+        </div>
+        <div class="col-md-10 text-right">
+            <ul>
+                <li class="active"><a href="{% url 'room_management:landing-page' %}">Home</a></li>
+                <li class="btn-cta"><a href="{% url 'room_management:logout' %}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <form method="POST" class="register-form" id="register-form" enctype="multipart/form-data"
+              action="{% url 'room_management:add-customer' %}">
+            {% csrf_token %}
+            <div class="col-lg-6 profile-img">
+                <input type="file" accept=".png, .jpg, .jpeg" id="imageUpload" name="image" onchange="loadFile(event)">
+                <label for="imageUpload">
+                    <img src="{% static 'add_customer/images/add-image.png' %}" alt="" style="height: 500px" id="uploadImage"
+                         title="Upload Profile Image">
+                </label>
+            </div>
+
+            <div class="col-lg-6" id="details">
+                <h3>CUSTOMER DETAILS:</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name :</label>
+                        <input type="text" name="cust_name" id="name" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="aadhaar">Aadhaar No :</label>
+                        <input type="number" name="aadhaar" id="aadhaar" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="birth_date">DOB :</label>
+                        <input type="date" name="cust_dob" pattern="[0-9]{4}-[0-9]{1-2}-[0-9]{1-2}" id="birth_date"
+                               placeholder="YYYY-MM-DD" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender: </label>
+                        <select name="gender" id="gender" required>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">City :</label>
+                        <input type="text" name="city" id="city" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="house_no">House No:</label>
+                        <input type="text" name="house_number" id="house_number" required/>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="state">State :</label>
+                        <input type="text" name="state" id="state" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country:</label>
+                        <input type="text" name="country" id="country" required/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contact_no">Contact Number :</label>
+                    <input type="number" name="phn_number" id="contact_no" required/>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email ID :</label>
+                    <input type="email" name="email" id="email" required/>
+                </div>
+                <div class="form-submit">
+                    <button type="submit" class="btn btn-success">Add Customer</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script>
+  var loadFile = function(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('uploadImage');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+</script>
+
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

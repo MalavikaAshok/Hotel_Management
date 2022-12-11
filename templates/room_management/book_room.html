@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="{% static 'book_room/css/styles.css' %}" rel="stylesheet">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+    <title>Book Room</title>
+</head>
+<body style="background-color: #232525;">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <nav class="colorlib-nav">
+                <div class="top-menu">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-2 text-center">
+                                <div id="colorlib-logo"><a href="{% url 'room_management:home' %}">BOOK HOTEL</a></div>
+                            </div>
+                            <div class="col-md-10 text-right">
+                                <ul>
+                                    <li class="active"><a href="{% url 'room_management:home' %}">Home</a></li>
+                                    <li class="btn-cta"><a href="{% url 'room_management:logout' %}">Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container form">
+    <form method="POST">
+        {% csrf_token %}
+        <h1>Room Booking</h1>
+        <div class="form-group">
+            <label for="room">Available Rooms:</label>
+            <select multiple class="form-control" id="room" name="room" required>
+                {% for room in empty_rooms %}
+                    <option>{{ room }}</option>
+                    <hr>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="customer">Customer Aadhaar:</label>
+            <select multiple class="form-control" id="customer" name="aadhaar" required>
+                {% for customer in customers %}
+                    <option>{{ customer.customer_aadhaar }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="days">No of days:</label>
+            <input type="number" class="form-control" id="days" name="days" required>
+        </div>
+        <button type="submit" class="btn btn-outline-info">Book</button>
+        <h4>Customer not Registered? <a href="{% url 'room_management:add-customer' %}">Add customer</a></h4>
+
+        <marquee>This session will expire within 4 minutes.</marquee>
+    </form>
+</div>
+
+</div>
+</body>
+</html>

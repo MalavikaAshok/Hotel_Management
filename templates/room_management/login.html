@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <title>BOOK HOTEL - SignIn</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'login/css/main.css' %}">
+
+</head>
+<body style="background: #232525">
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <nav class="colorlib-nav">
+                <div class="top-menu">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-2 text-center">
+                                <div id="colorlib-logo"><a href="{% url 'room_management:landing-page' %}">BOOK HOTEL</a></div>
+                            </div>
+                            <div class="col-md-10 text-right">
+                                <ul>
+                                    <li class="active"><a href="{% url 'room_management:landing-page' %}">Home</a></li>
+                                    <li class="btn-cta"><a href="{% url 'room_management:login' %}">Login</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row form">
+        <div class="col-lg-6">
+            <div>
+                <h2>Sign In</h2>
+            </div>
+            <div>
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+                    <input type="password" class="form-control" name="password" placeholder="**********" required>
+                    <button class="btn">Sign In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+{% load staticfiles %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Book Hotel</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="{% static 'landingpage/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'landingpage/css/style.css' %}">
+
+</head>
+<body>
+
+
+<div id="page">
+    <nav class="colorlib-nav" role="navigation">
+        <div class="top-menu">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 text-center">
+                        <div id="colorlib-logo"><a href="{% url 'room_management:landing-page' %}">BOOK HOTEL</a></div>
+                    </div>
+                    <div class="col-md-10 text-right menu-1">
+                        <ul>
+                            <li class="active"><a href="{% url 'room_management:landing-page' %}">Home</a></li>
+                            <li><a href="#colorlib-services">Services</a></li>
+                            <li><a href="#colorlib-footer">Contact</a></li>
+                            <li class="btn-cta"><a href="{% url 'room_management:login' %}">Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="colorlib-intro">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <div class="intro">
+                        <h1>WELCOME</h1>
+                        <p>We appreciate all the room managers for your excellent work</p>
+                        <p>
+                            <a href="{% url 'room_management:login' %}" class="btn btn-primary btn-outline btn-md">Book A Room</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <aside id="colorlib-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li style="background-image: url('{% static 'landingpage/images/hotel.jpg' %}');"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <div id="colorlib-services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center colorlib-heading">
+                    <h2>Our Services</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 text-center ">
+                    <div class="services">
+                        <span class="icon">
+                            <i class="fa fa-home"></i>
+                        </span>
+                        <div class="desc">
+                            <h3>Rooms Service</h3>
+                            <p>We provide you the luxurious and beautiful rooms. We give you the best experience of all hotels.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center ">
+                    <div class="services">
+                        <span class="icon">
+                            <i class="fas fa-utensils"></i>
+                        </span>
+                        <div class="desc">
+                            <h3>Food Service</h3>
+                            <p>We give you the delicious dishes and hygienic food. We assure you good health.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center ">
+                    <div class="services">
+                        <span class="icon">
+                            <i class="fas fa-swimming-pool"></i>
+                        </span>
+                        <div class="desc">
+                            <h3>Other Services</h3>
+                            <p>We also provide swimming, gym, yoga, games and some entertaining activities</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="colorlib-counter" class="colorlib-counters"
+         style="background-image: url('{% static 'landingpage/images/cover_img_1.jpg' %}');" data-stellar-background-ratio="0.4">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center colorlib-heading ">
+                    <h2>Our &nbsp; Establishment</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-md-offset-0">
+                    <div class="col-md-3 col-sm-3 text-center ">
+                        <div class="counter-entry">
+                            <span class="icon"><i class="fa fa-home"></i></span>
+                            <div class="desc">
+                                <span class="colorlib-counter">{{ rooms_count }}</span>
+                                <span class="colorlib-counter-label">Total Rooms</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 text-center ">
+                        <div class="counter-entry">
+                            <span class="icon"><i class="fa fa-building"></i></span>
+                            <div class="desc">
+                                <span class="colorlib-counter">{{ blocks_count }}</span>
+                                <span class="colorlib-counter-label">Total Blocks</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 text-center ">
+                        <div class="counter-entry">
+                            <span class="icon"><i class="fa fa-user"></i></span>
+                            <div class="desc">
+                                <span class="colorlib-counter">{{ customers_count }}</span>
+                                <span class="colorlib-counter-label">No of Customers</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 text-center ">
+                        <div class="counter-entry">
+                            <span class="icon"><i class="fas fa-users"></i></span>
+                            <div class="desc">
+                                <span class="colorlib-counter">200</span>
+                                <span class="colorlib-counter-label">No of Employees</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="colorlib-work">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 no-gutters text-center ">
+                    <a href="#" class="work-entry" style="background-image: url('{% static 'landingpage/images/singlebed.jpg' %}');">
+                        <div class="desc">
+                            <div class="display-t">
+                                <div class="display-tc">
+                                    <span>{{ room_type_price.0.0 }}</span>
+                                    <span class="room_price">Price: {{ room_type_price.0.1 }}/-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 no-gutters text-center ">
+                    <a href="#" class="work-entry" style="background-image: url('{% static 'landingpage/images/doublebed.jpg' %}');">
+                        <div class="desc">
+                            <div class="display-t">
+                                <div class="display-tc">
+                                    <span>{{ room_type_price.1.0 }}</span>
+                                    <span class="room_price">Price: {{ room_type_price.1.1 }}/-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 no-gutters text-center ">
+                    <a href="" class="work-entry" style="background-image: url('{% static 'landingpage/images/triplebed.jpg' %}');">
+                        <div class="desc">
+                            <div class="display-t">
+                                <div class="display-tc">
+                                    <span>{{ room_type_price.2.0 }}</span>
+                                    <span class="room_price">Price: {{ room_type_price.2.1 }}/-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <footer id="colorlib-footer">
+                <div class="container" style="margin-bottom: -50px">
+                    <div class="row row-pb-md" style="margin-top: 5%">
+                        <div class="col-md-4 colorlib-widget">
+                            <h4>About BOOK HOTEL</h4>
+                            <p>Far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics</p>
+                            <p>
+                            <ul class="colorlib-social-icons">
+                            <li><a href="#"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#"><i class="icon-facebook"></i></a></li>
+                            <li><a href="#"><i class="icon-linkedin"></i></a></li>
+                            <li><a href="#"><i class="icon-dribbble"></i></a></li>
+                        </ul>
+                            </p>
+                        </div>
+                        <div class="col-md-4 colorlib-widget">
+                            <div style="margin-left: 9rem">
+                                <h4>Information</h4>
+                                <p>
+                                <ul class="colorlib-footer-links">
+                                <li><a href="{% url 'room_management:landing-page' %}"> Home</a></li>
+                                <li><a href="{% url 'room_management:login' %}"> Login</a></li>
+                                <li><a href="#"> About</a></li>
+                                <li><a href="#"> Terms &amp; Condition</a></li>
+                                <li><a href="#"> Contact</a></li>
+                            </ul>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 colorlib-widget">
+                            <diV style="margin-left: 6rem">
+                                <h4>Contact Info</h4>
+                                <ul class="colorlib-footer-links">
+                                    <li><i class="fa fa-home"></i><span>SriCity, Chittor, India</span></li>
+                                    <li><i class="fa fa-phone"></i> <span>+ 1235 2355 98</span></li>
+                                    <li><i class="fa fa-envelope"></i><span> hotelmanagement.com</span></li>
+                                    <li><i class="fa fa-location-arrow"></i> <span>hotelmanagement.com</span></li>
+                                </ul>
+                            </diV>
+                        </div>
+                    </div>
+                </div>
+                <div class="copy">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <p>
+                                    <small class="block">
+                                        Copyright &copy;
+                                        <script>
+                                            document.write(new Date().getFullYear());
+                                        </script>
+                                        <a href="{% url 'room_management:landing-page' %}">&nbsp;BOOK HOTEL&nbsp;</a> | All rights reserved
+                                    </small><br>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+</body>
+</html>
+
